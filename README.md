@@ -1,3 +1,4 @@
 # sathis-infinit.github.io
-Sathish Kumar
+Hello I'm Sathish Kumar
+A coder
 
