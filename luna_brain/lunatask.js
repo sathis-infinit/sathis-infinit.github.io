@@ -68,7 +68,7 @@ function lunacommands(command) {
 
 function speakout(text) {
 
-    // luna.abort();
+    luna.abort();
 
     var utterance = new SpeechSynthesisUtterance(text);
     var voices = window.speechSynthesis.getVoices();
@@ -102,8 +102,9 @@ function currtime() {
 var whatcommands = function (command) {
 
     command = command.toLowerCase();
+    let result = /time/.test(command);
 
-    if (command == "is the time") {
+    if (result) {
         var nowtime = currtime();
         speakout("The time is " + nowtime);
 
@@ -129,9 +130,9 @@ var whocommands = function (command) {
     //     speakout("Nothing Much !")
     // }
     // console.log(command.split(" "))
-
+    command = command.toLowerCase();
     let text = command;
-    let result = text.includes("infinity");
+    let result = /infinity|yamuna|satish/.test(command);
 
     if(result)
     {

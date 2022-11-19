@@ -7,18 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luna</title>
 
+    <script src="./luna_detector/pwew.js"></script>
+    <script src="./luna_detector/wvp.js"></script>
+    <script src="./luna_detector/wakeword.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
 
 
-    <link href="./assets/css/lunaai.css" rel="stylesheet" type="text/css" />
+    <link href="lunaai.css" rel="stylesheet" type="text/css" />
 
 
 </head>
 
-<body>
+<body onload="startPorcupine()">
 
     <div class="lunaai" id="lunaai">
         <br>
@@ -30,11 +33,17 @@
 
     </div>
 
+    <!-- <h1>Porcupine Web Demo</h1>
+    <input type="button" id="submit" value="Start Porcupine" onclick="startPorcupine()" /> -->
+    <!-- <hr />
+    <div id="status"></div>
+    <br>
+    <div id="result"></div> -->
 
-    <script src="./assets/js/lunaai.js"></script>
-    <script src="./assets/js/lunatask.js"></script>
-    <script src="./assets/js/lunacore.js"></script>
-    <script src="./assets/js/lunamain.js"></script>
+    <script src="./luna_engine/lunaai.js"></script>
+    <script src="./luna_brain/lunatask.js"></script>
+    <script src="./luna_engine/lunacore.js"></script>
+    <script src="./luna_brain/lunamain.js"></script>
 
 </body>
 
