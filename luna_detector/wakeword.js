@@ -1,12 +1,10 @@
 function writeMessage(message) {
   console.log(message);
-
   
 
   // document.getElementById("status").innerHTML = message;
 
 }
-speakout("ready");
 
 function porcupineErrorCallback(error) {
   writeMessage(error);
@@ -17,14 +15,11 @@ function porcupineKeywordCallback(keyword) {
   const message = `keyword detected at ${time.toLocaleTimeString()}: ${keyword}`
   console.log(message);
   
-  // luna.start({ autoRestart: true, continuous: false });
-  flunasimple();
-  // console.log("got ",got);
+  luna.start({ autoRestart: true, continuous: false });
   // document.getElementById("result").innerHTML = message;
 }
 
 async function startPorcupine(accessKey = 'S2vwjyUTZTYjvnPzyg9RF2SoLmk1tSKuqL5TB2FcvFzu935a2GDc6Q==') {
-  const elVisualizer = document.querySelector('.visualizer');
   writeMessage("Porcupine is loading. Please wait...");
   try {
     let ppnEn = await PorcupineWebEnWorker.PorcupineWorkerFactory.create(
