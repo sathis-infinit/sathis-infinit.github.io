@@ -28,7 +28,7 @@ function handleallcommand(commandText)
     }
     
     else{
-        speakout("i'm yet to learn!")
+        speakout("i'm yet to learn! infinit")
     }
     showcommandinui(commandText)
 }
