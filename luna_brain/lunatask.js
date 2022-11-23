@@ -1,5 +1,6 @@
-function listerncmd()
-{
+
+const listerncmd = async () => {
+
     var commd = lunarecognise();
     handleallcommand(commd);
 }
@@ -10,6 +11,7 @@ function handleallcommand(commandText)
 
     
     commandText = commandText.toLowerCase();
+
     if (/hai|hi|hello|what is up/.test(commandText))
     {
         speakout("Hello ! I'm luna , How are You Today ?")
