@@ -18,6 +18,8 @@ recognition.onresult = function (event) {
   var lunaai = document.getElementById("lunatext");
   lunaai.innerText = result;
   // lunahandle(result);
+  recognition.stop();
+  return result;
 
 };
 

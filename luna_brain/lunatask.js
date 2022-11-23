@@ -18,8 +18,15 @@ var database = firebase.database();
 // Will work based on lunacore line 130 code - (var parseresult() - last line)
 
 
+
+function listerncmd()
+{
+    var commd = lunarecognise();
+    handleallcommand(commd);
+}
 function handleallcommand(commandText)
 {
+
     
     commandText = commandText.toLowerCase();
     if (commandText=="hai")
