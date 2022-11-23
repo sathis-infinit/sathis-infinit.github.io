@@ -6,8 +6,8 @@ function lunarecognise()
 console.log("...Recognising...")
 
 const recognition = new webkitSpeechRecognition();
-recognition.continuous = true;
-recognition.interimResults = true;
+recognition.continuous = false;
+recognition.interimResults = false;
 recognition.start();
 recognition.onresult = function (event) {
   let result = '';
