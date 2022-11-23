@@ -1,105 +1,33 @@
-const config = {
-    apiKey: "AIzaSyA0jC3DUFl4jxjth4vwmbKNzYFLSt1YaVA",
-    authDomain: "luna-fdb.firebaseapp.com",
-    databaseURL: "https://luna-fdb-default-rtdb.firebaseio.com",
-    projectId: "luna-fdb",
-    storageBucket: "luna-fdb.appspot.com",
-    messagingSenderId: "167131896270",
-    appId: "1:167131896270:web:0b524202c8afad005c339f",
-    measurementId: "G-282S7D224C"
-};
-
-
-firebase.initializeApp(config);
-var database = firebase.database();
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Will work based on lunacore line 130 code - (var parseresult() - last line)
-
-
-
 function listerncmd()
 {
     var commd = lunarecognise();
     handleallcommand(commd);
 }
+
+
 function handleallcommand(commandText)
 {
 
     
     commandText = commandText.toLowerCase();
-    if (commandText=="hai")
+    if (/hai|hi|hello|what is up/.test(commandText))
     {
-        speakout("Hello")
+        speakout("Hello ! I'm luna , How are You Today ?")
     }
     
+    else if(/what/.test(commandText))
+    {
+        whatcommands(commandText);
+    }
+
+    else if(/who/.test(commandText))
+    {
+        whatcommands(commandText);
+    }
     else{
         speakout("i'm yet to learn!")
     }
     showcommandinui(commandText)
-}
-
-
-
-
-function showcommandinui(commandText) {
-
-    var lunaai = document.getElementById("lunaquestion");
-    lunaai.innerText = commandText;
-
-}
-
-// // using on lunacore line#163
-// function nocommandmatch() {
-
-//     var lunaai = document.getElementById("lunaresponse");
-//     lunaai.innerText = "Sorry , I don't Know That Yet !";
-//     speakout("Sorry , I don't Know That Yet !");
-
-// }
-
-
-function lunacommands(command) {
-    // var lunaai = document.getElementById("lunaai");
-    // lunaai.style.visibility = "visible";
-    // var lunaai = document.getElementById("lunaresponse");
-    // lunaai.innerText = "luna";
-
-    if(command == 'pause')
-    {
-    luna.pause();
-    }
-}
-
-
-function speakout(text) {
-
-    luna.abort();
-
-    var utterance = new SpeechSynthesisUtterance(text);
-    var voices = window.speechSynthesis.getVoices();
-    utterance.voice = voices.filter(function (voice) { return voice.name == 'Google US English'; })[0];
-    window.speechSynthesis.speak(utterance);
-
-    var lunaai = document.getElementById("lunaresponse");
-    lunaai.innerText = text;
-    // luna.abort();
-    
-   
-}
-
-
-function currtime() {
-    var date = new Date();
-    var hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
-    var am_pm = date.getHours() >= 12 ? "PM" : "AM";
-    hours = hours < 10 ? "0" + hours : hours;
-    var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-    var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-    var ctime = hours + ":" + minutes + " " + am_pm;
-    console.log(ctime);
-    return ctime;
 }
 
 
@@ -132,11 +60,6 @@ var whatcommands = function (command) {
 
 var whocommands = function (command) {
 
-    // command.split(" ").includes("up")
-    // {
-    //     speakout("Nothing Much !")
-    // }
-    // console.log(command.split(" "))
     command = command.toLowerCase();
     let text = command;
     let result = /infinity|yamuna|satish/.test(command);
@@ -174,23 +97,49 @@ var whocommands = function (command) {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+function showcommandinui(commandText) {
 
-calltask = function (command) {
-    // updatetask('call ' + command);
-    speakout('Calling ' + command + ' !')
+    var lunaai = document.getElementById("lunaquestion");
+    lunaai.innerText = commandText;
+
+}
+
+// // using on lunacore line#163
+// function nocommandmatch() {
+
+//     var lunaai = document.getElementById("lunaresponse");
+//     lunaai.innerText = "Sorry , I don't Know That Yet !";
+//     speakout("Sorry , I don't Know That Yet !");
+
+// }
+
+
+
+function speakout(text) {
+
+    luna.abort();
+
+    var utterance = new SpeechSynthesisUtterance(text);
+    var voices = window.speechSynthesis.getVoices();
+    utterance.voice = voices.filter(function (voice) { return voice.name == 'Google US English'; })[0];
+    window.speechSynthesis.speak(utterance);
+
+    var lunaai = document.getElementById("lunaresponse");
+    lunaai.innerText = text;
+
+    
+   
 }
 
 
-
-function deviceon(device) {
-    firebase.database().ref("luna/devices/device4").set(0)
-    speakout('Turning on ' + device + ' !')
+function currtime() {
+    var date = new Date();
+    var hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
+    var am_pm = date.getHours() >= 12 ? "PM" : "AM";
+    hours = hours < 10 ? "0" + hours : hours;
+    var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+    var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+    var ctime = hours + ":" + minutes + " " + am_pm;
+    console.log(ctime);
+    return ctime;
 }
-
-
-
-function deviceoff(device) {
-    firebase.database().ref("luna/devices/device4").set(1)
-    speakout('Turning off ' + device + ' !')
-}
-

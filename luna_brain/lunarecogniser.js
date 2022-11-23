@@ -17,7 +17,7 @@ recognition.onresult = function (event) {
 
   var lunaa = document.getElementById("lunatest");
   lunaa.innerText = result;
-  // lunahandle(result);
+  
   recognition.stop();
   return result;
 
