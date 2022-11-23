@@ -1,15 +1,17 @@
 
-const listerncmd = async () => {
+async function listerncmd() {
 
-    var commd = lunarecognise();
-    handleallcommand(commd);
+        window.curcmd = await lunarecognise()
+    
 }
+handleallcommand(window.curcmd);
+
 
 
 function handleallcommand(commandText)
 {
 
-    
+    console.log(commandText);
     commandText = commandText.toLowerCase();
 
     if (/hai|hi|hello|what is up/.test(commandText))
@@ -24,7 +26,7 @@ function handleallcommand(commandText)
 
     else if(/who/.test(commandText))
     {
-        whatcommands(commandText);
+        whocommands(commandText);
     }
     else{
         speakout("i'm yet to learn!")
@@ -90,7 +92,7 @@ var whocommands = function (command) {
     }
     else
     {
-        speakout("Not Sure About That!")
+        nocommandmatch();
     }
 
 }
@@ -106,20 +108,18 @@ function showcommandinui(commandText) {
 
 }
 
-// // using on lunacore line#163
-// function nocommandmatch() {
 
-//     var lunaai = document.getElementById("lunaresponse");
-//     lunaai.innerText = "Sorry , I don't Know That Yet !";
-//     speakout("Sorry , I don't Know That Yet !");
+function nocommandmatch() {
 
-// }
+    var lunaai = document.getElementById("lunaresponse");
+    lunaai.innerText = "Sorry , I don't Know That Yet !";
+    speakout("Sorry , I don't Know That Yet !");
+
+}
 
 
 
 function speakout(text) {
-
-    luna.abort();
 
     var utterance = new SpeechSynthesisUtterance(text);
     var voices = window.speechSynthesis.getVoices();
@@ -127,9 +127,7 @@ function speakout(text) {
     window.speechSynthesis.speak(utterance);
 
     var lunaai = document.getElementById("lunaresponse");
-    lunaai.innerText = text;
-
-    
+    lunaai.innerText = text; 
    
 }
 
