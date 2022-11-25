@@ -37,7 +37,7 @@ function updateVisualizer() {
 
 }
 
-function startStream() {
+async function startStream() {
   return navigator.mediaDevices
     .getUserMedia({ audio: true, video: false })
     .then(stream => audioCtx.createMediaStreamSource(stream))

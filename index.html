@@ -17,8 +17,14 @@
 
 </head>
 
-<body>
+<body> 
 
+    <audio id="speechon">
+        <source src="./luna_data/speechon.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="speechoff">
+        <source src="./luna_data/speechoff.mp3" type="audio/mpeg">
+    </audio>
     <div class="lunaai" id="lunaai">
         <br>
         <div class="visualizer"></div>
@@ -26,9 +32,9 @@
             <p class="lunaquestion" id="lunaquestion" style="color: green;">...Listerning...</p>
             <p class="lunaresponse" id="lunaresponse"></p>
         </div>
-        <button onclick="listerncmd()">run</button>
 
     </div>
+    <button class="talk" onclick="lunamain()">talk</button>
 
     <!-- <h1>Porcupine Web Demo</h1>
     <input type="button" id="submit" value="Start Porcupine" onclick="startPorcupine()" /> -->
@@ -37,10 +43,11 @@
     <br>
     <div id="result"></div> -->
 
-    <script src="./luna_brain/lunarecogniser.js"></script>  
-    <script src="./luna_engine/lunaai.js"></script>
-    <script src="./luna_brain/lunatask.js"></script>
-      
+    <script src="./lunarecogniser.js"></script>
+    <script src="./lunautils.js"></script>
+    <script src="./lunavisualizer.js"></script>
+    <script src="./lunatask.js"></script>
+
 </body>
 
 </html>
