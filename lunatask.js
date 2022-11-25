@@ -31,6 +31,11 @@ async function whatcommands(commandText)
 
 async function whocommands(commandText)
 {
+    if((/are/.test(commandText))&(/you/.test(commandText)))
+    {
+        lunaspeak("Hello , i'm luna! , Thanks for asking!");
+    }
+
     if((/created|made/.test(commandText))&(/you/.test(commandText)))
     {
         lunaspeak("I was Created by infinit !");
