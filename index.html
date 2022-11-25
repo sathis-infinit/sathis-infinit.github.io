@@ -17,7 +17,7 @@
 
 </head>
 
-<body> 
+<body onload="startPorcupine()"> 
 
     <audio id="speechon">
         <source src="./luna_data/speechon.mp3" type="audio/mpeg">
@@ -43,6 +43,9 @@
     <br>
     <div id="result"></div> -->
 
+    <script src="./luna_detector/pwew.js"></script>
+    <script src="./luna_detector/wakeword.js"></script>
+    <script src="./luna_detector/wvp.js"></script>
     <script src="./lunarecogniser.js"></script>
     <script src="./lunautils.js"></script>
     <script src="./lunavisualizer.js"></script>
