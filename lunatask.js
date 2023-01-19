@@ -39,6 +39,7 @@ async function whocommands(commandText)
     if((/created|made/.test(commandText))&(/you/.test(commandText)))
     {
         lunaspeak("I was Created by infinit !");
+
     }
     
     
@@ -81,7 +82,4 @@ async function opencommands(commandText)
     
     
 }
-
-
-
 
