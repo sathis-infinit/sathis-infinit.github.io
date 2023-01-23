@@ -77,7 +77,9 @@ async function lunahear(dummy)
   {
     var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     var recognition = new SpeechRecognition();
+    recognition.maxAlternatives = 1; 
     recognition.start();
+    
 
     recognition.onresult = function (event) 
     {
